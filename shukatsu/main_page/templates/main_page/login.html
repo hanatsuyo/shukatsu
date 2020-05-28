@@ -1,0 +1,28 @@
+{% block content %}
+<html>
+  <div class="login text">
+    <h2>ログイン</h2>
+    <form class="form-signin"  method="post" >{% csrf_token %}
+            {% if form.errors %}
+                <p class="error">ユーザー名かパスワードが間違っています。もう一度入力してください。</p>
+            {% endif %}
+            <div class = "login-container">
+              <div class="login-username-form">
+                <label>ユーザー名</label>
+                <input class="login-username" name="username">
+              </div>
+            <br>
+            <div class="login-pass-form">
+            <label>パスワード</label>
+            <input class="login-pass" type="password" name="password">
+            </div>
+            <br>
+            </div>
+	    <br>
+            <button type="submit" class="login btn">ログイン</button>
+    </form>
+
+    <a href="{% url 'main_page:signup' %}"><button>ユーザー登録</button></a>
+  </div>
+</html>
+{% endblock %}

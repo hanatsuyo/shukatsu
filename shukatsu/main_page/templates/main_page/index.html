@@ -1,0 +1,16 @@
+<h1>Hello World</h1>
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<h2 class="mypage">{{ request.user.username }}さんのページ</h2>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% for company in companies %}
+<a href="{% url 'main_page:company_detail' pk=company.pk %}">{{ company.name | default_if_none:"未記入"}}</a>
+<br>
+{% endfor %}
+
+<a href ="{% url 'main_page:company_new' %}">企業フォーム</a>  
+<a href ="{% url 'main_page:logout' %}">ログアウト</a>   
+
+
+{% endblock %}

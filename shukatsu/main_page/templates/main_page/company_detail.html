@@ -1,0 +1,25 @@
+{% block content %}
+
+<h2 class="">{{ companies.name }}のページ</h2>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">    
+</head>
+<div class="">
+<p>マイページID：</p>
+<p>{{companies.mypage_id|default_if_none:"未記入"}}</p>
+<p>マイページパスワード：</p>
+<p>{{companies.mypage_pwd|default_if_none:"未記入"}}</p>
+<p>マイページURL</p>
+<p>{{companies.mypage_url|default_if_none:"未記入"}}</p>
+<p>選考状況：</p>
+<p>{{companies.progress|default_if_none:"未記入"}}</p>
+<p>次回選考日程：</p>
+{{companies.next_date|default_if_none:"未記入"}}　{{companies.next_time|default_if_none:"未記入"}}</p>
+</div>
+<a href="{% url 'main_page:index' %}"><button>戻る</button></a>
+<a class="btn btn-default" href="{% url 'main_page:company_edit' pk=companies.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+<br>
+<a href="{% url 'main_page:delete_comfirm' pk=companies.pk %}"><button>削除</button></a>
+
+{% endblock %}

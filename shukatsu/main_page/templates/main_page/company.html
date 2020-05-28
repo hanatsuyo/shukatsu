@@ -1,0 +1,26 @@
+{% block content %}
+{% load widget_tweaks %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load static %}
+
+<h3>企業情報登録ページ</h3>
+<hr>
+<div classs="">
+<form method="POST" class="">{% csrf_token %}
+    {{ form.as_p }}
+    {{ form.media }}
+
+    <!-- <p>企業名:{{form.name}}</p>
+    <p>マイページID{{form.mypage_id}}</p>
+    <p>マイページパスワード{{form.mypage_pwd}}</p>
+    <p>マイページURL{{form.mypage_url}}</p>
+    <p>選考状況{{form.progress}}</p>
+    <p>選考日程{{form.next_datetime}}</p> -->
+
+    <button type="submit" class="btn">保存</button>
+</form>
+<a href="{% url 'main_page:index' %}"><button>戻る</button></a>
+<hr>
+{% endblock %}
