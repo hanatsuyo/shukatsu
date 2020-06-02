@@ -1,16 +1,50 @@
-<h1>Hello World</h1>
+{% extends 'main_page/base.html' %}
 {% load static %}
 {% load widget_tweaks %}
-{% block content %}
-<h2 class="mypage">{{ request.user.username }}さんのページ</h2>
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
-{% for company in companies %}
-<a href="{% url 'main_page:company_detail' pk=company.pk %}">{{ company.name | default_if_none:"未記入"}}</a>
-<br>
-{% endfor %}
 
-<a href ="{% url 'main_page:company_new' %}">企業フォーム</a>  
-<a href ="{% url 'main_page:logout' %}">ログアウト</a>   
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'main_page/css/index.css' %}">
+</head>
+
+<table>
+    <tr id="company-title">
+      <th>マイページURL</th>
+      <th>企業名</th>
+      <th>選考状況</th>
+      <th>次の選考日程</th>
+    </tr>
+{% for company in companies %}
+    <tr id="company-bar">
+      <td>
+        {% if company.mypage_url %}
+        <a class="mypage-url-true" href="{{ company.mypage_url }}" target="_blank">{{ company.mypage_url}}</a>
+        {% else %}
+        <p class="mypage-url-false">URLが登録されていません</p>
+        {% endif %}
+      </td>
+      <td>
+        <p class="company-bar-name">{{ company.name }}</p>
+      </td>
+      <td>
+        <p class="company-bar-progress">{{ company.progress | default_if_none:"選考状況が登録されていません"}}</p>
+      </td>
+      <td>
+        <p class="company-bar-nextdate">{{ company.next_date | default_if_none:"次の選考日程が登録されていません"}}</p>
+      </td>
+      <td>
+        <a class="company-bar-detail" href="{% url 'main_page:company_detail' pk=company.pk %}"><button>詳細</button></a>
+      </td>
+      <td>
+        <a class="company-bar-delete" href="{% url 'main_page:delete_comfirm' pk=company.pk %}"><button>削除</button></a>
+      </td>
+    </tr>
+{% endfor %}
+</table>
+
+
+   
 
 
 {% endblock %}

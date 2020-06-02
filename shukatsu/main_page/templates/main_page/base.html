@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href=" {% static 'main_page/css/base.css' %}">
+</head>
+<div class="header">
+    <ur>
+        <li>
+            <p class="company-logo">企業管理ツール</p>
+        </li>
+        <li>
+            <a class="company-signup" href="{% url 'main_page:company_new' %}">企業登録</a>
+        </li>
+        <li>
+            <p class="login-user">{{ request.user.username }}</p>
+        </li>
+        <li>
+            <a class="logout" href ="{% url 'main_page:logout' %}">ログアウト</a>   
+        </li>
+    </ur>
+</div>
+{% block content%}
+
+{% endblock %}
+</html>

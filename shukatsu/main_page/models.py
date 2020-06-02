@@ -12,9 +12,9 @@ class Company(models.Model):
     
     name = models.CharField(
         verbose_name='企業名',
-        blank=True,
-        null=True,
-        max_length=100
+        max_length=100,
+        null=False,
+        default="会社名",
         )
 
     mypage_id = models.CharField(
@@ -49,7 +49,7 @@ class Company(models.Model):
         blank=True,
         null=True,
     )  
-    
+
     next_time = models.TimeField(
         verbose_name='選考時間',
         blank=True,
