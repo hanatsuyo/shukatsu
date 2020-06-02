@@ -92,6 +92,7 @@ DATABASES = {
 }
 
 
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -110,7 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -132,4 +135,4 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = 'main_page:login'
 LOGIN_REDIRECT_URL = 'main_page:index'
-LOGOUT_REDIRECT_URL = 'main_page:logout_done'
+LOGOUT_REDIRECT_URL = 'main_page:login'

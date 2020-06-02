@@ -1,0 +1,38 @@
+.header li{
+    display: inline-block;
+}
+
+.header{
+    border-bottom: solid 2px #555;
+}
+
+.company-logo{
+position: relative ; left:20px;
+font-weight: bold;
+font-size:20px;
+}
+
+.company-signup{
+position: absolute; right:160px; top:37px;
+text-decoration: none;
+color:#696969;
+}
+.company-signup:hover{
+    color:#00bfff;
+}
+
+.login-user{
+position: absolute; right: 10px; top:21px;
+color:black;
+
+}
+
+.logout{
+    position: absolute; right: 80px; top:37px;
+    text-decoration: none;
+    color:#696969;
+}
+.logout:hover{
+    color:#00bfff;
+}
+

@@ -1,0 +1,41 @@
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+  
+table tr{
+    border-bottom: solid 1px #eee;
+    cursor: pointer;
+  }
+  
+table tr:hover{
+    background-color: #f8f8ff;
+  }
+  
+table th,table td{
+    text-align: center;
+    width: 25%;
+    padding: 15px 0;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+.mypage-url-true{
+      text-decoration: none;
+      color:#696969;
+     }
+
+.mypage-url-true:hover{
+    color:#00bfff;
+}
+
+.mypage-url-false{
+    color:#696969;
+}
+
+table td{
+    color:#696969;
+}
