@@ -1,28 +1,35 @@
+{% extends 'main_page/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+
 {% block content %}
 <html>
-  <div class="login text">
-    <h2>ログイン</h2>
+  <head>
+    <link rel="stylesheet" href="{% static 'main_page/css/login.css' %}">
+  </head>
+
+  <div class="login-text">
+    <h2 class="login-header">ログイン</h2>
     <form class="form-signin"  method="post" >{% csrf_token %}
-            {% if form.errors %}
-                <p class="error">ユーザー名かパスワードが間違っています。もう一度入力してください。</p>
-            {% endif %}
             <div class = "login-container">
               <div class="login-username-form">
-                <label>ユーザー名</label>
-                <input class="login-username" name="username">
+               <p><input class="login-username" name="username" placeholder="ユーザー名"></p>
               </div>
-            <br>
             <div class="login-pass-form">
-            <label>パスワード</label>
-            <input class="login-pass" type="password" name="password">
+            <p><input class="login-pass" type="password" name="password" placeholder="パスワード"></p>
             </div>
+            <button type="submit" class="login-btn">ログイン</button>
             <br>
+            <a  href="{% url 'main_page:signup' %}"><button class="signup-btn">新規登録</button></a>
             </div>
-	    <br>
-            <button type="submit" class="login btn">ログイン</button>
+      <br>
+      {% if form.errors %}
+      <p class="error">※ユーザー名かパスワードが間違っています。もう一度入力してください。</p>
+      {% endif %}
     </form>
 
-    <a href="{% url 'main_page:signup' %}"><button>ユーザー登録</button></a>
   </div>
 </html>
 {% endblock %}
