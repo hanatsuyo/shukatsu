@@ -9,6 +9,7 @@
         <li>
             <p class="company-logo">企業管理ツール</p>
         </li>
+        {% if request.user.is_authenticated %}
         <li>
             <a class="company-signup" href="{% url 'main_page:company_new' %}">企業登録</a>
         </li>
@@ -18,6 +19,7 @@
         <li>
             <a class="logout" href ="{% url 'main_page:logout' %}">ログアウト</a>   
         </li>
+        {% endif %}
     </ur>
 </div>
 {% block content%}
